@@ -5,7 +5,7 @@ This repository contains educational resources that I've used for mentoring stud
 ## Recommended Reading Materials
 Below are some resources that have proven valuable in my own journey. I am a firm believer that complexity in learning new subjects often comes from the way the material is presented rather than the content itself. Therefore, I've selected these resources, making sure they are not only informative but also accessible.
 
-* Neuronal Dynamics - Computational Neuroscience by Wulfram Gerstner. This [Lecture series](https://lcnwww.epfl.ch/gerstner/NeuronalDynamics-MOOCall.html)offers an excellent overview of the computational aspect of neuroscience. Previously available on edX, it's now freely accessible on YouTube.
+* Neuronal Dynamics - Computational Neuroscience by Wulfram Gerstner. This [Lecture series](https://lcnwww.epfl.ch/gerstner/NeuronalDynamics-MOOCall.html) offers an excellent overview of the computational aspect of neuroscience. Previously available on edX, it's now freely accessible on YouTube.
 * Vision and Brain: How We Perceive the World by James V. Stone. This is a fantastic book that provides technical depth yet remains enjoyable to read. You can find the book [here](https://jamesstone.sites.sheffield.ac.uk/books/vision-and-brain). We'll cover the first six chapters, which align perfectly with our focus on visual neuroscience.
 * Principles of Neural Information Theory: Computational neuroscience and metabolic efficiency also by James V. Stone: This book beautifully applies information theory to neuroscience. We'll be reading Chapters 2 through 8. You can find the book [here](https://jamesstone.sites.sheffield.ac.uk/books/principles-of-neural-information-theory).
 
