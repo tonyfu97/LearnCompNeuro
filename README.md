@@ -7,11 +7,13 @@ Below are some resources that have proven valuable in my own journey. I am a fir
 
 ![Books](3books.png)
 
-* *Neuronal Dynamics - Computational Neuroscience* by Prof. Wulfram Gerstner. This [Lecture series](https://lcnwww.epfl.ch/gerstner/NeuronalDynamics-MOOCall.html) offers an excellent overview of the computational aspect of neuroscience. Previously available on edX, it's now freely accessible on YouTube.
+* *Neuronal Dynamics - Computational Neuroscience* by Prof. Wulfram Gerstner et al.. This [Lecture series](https://lcnwww.epfl.ch/gerstner/NeuronalDynamics-MOOCall.html) offers an excellent overview of the computational aspect of neuroscience. Previously available on edX, it's now freely accessible on YouTube.
 * *Vision and Brain: How We Perceive the World* by Dr. James V. Stone. This is a fantastic book that provides technical depth yet remains enjoyable to read. You can find the book [here](https://jamesstone.sites.sheffield.ac.uk/books/vision-and-brain). We'll cover the first six chapters, which align with our focus on visual neuroscience.
 * *Principles of Neural Information Theory: Computational Neuroscience and Metabolic Efficiency* also by Dr. James V. Stone: This book beautifully applies information theory to neuroscience. We'll be reading Chapters 2 through 8. You can find the book [here](https://jamesstone.sites.sheffield.ac.uk/books/principles-of-neural-information-theory).
 
 To complement your reading, I've converted my own notes into a set of questions for each week. These are designed to be more of a study companion rather than just an additional task.
+
+![Question Set](question_set.png)
 
 ## Hands-on Projects
 
