@@ -49,7 +49,7 @@ Here is an [example notebook](rf_mapping_live(standalone).ipynb) that demonstrat
 * What is 'xn'? How is it different from the size of the receptive field? Why do you need to determine 'xn'? If you are wondering about the 'xn' and RF size of different layers in AlexNet, VGG16, and ResNet18, check out [model_info.txt](model_info.txt).
 * Why we extract only the unit at the spatial center? Dr. Pospisil provides a good explanation: "AlexNet contains over 1.5 million units organized in eight major layers, but its convolutional architecture means that the vast majority of those units are spatially offset copies of each other. For example, in the first convolutional layer, Conv1, there are only 96 distinct kernels, but they are repeated everywhere on a 55 × 55 grid. Thus, for the convolutional layers, Conv1 to Conv5, it suffices to study the selectivity of only those units at the spatial center of each layer." Note that he refers to the Caffe AlexNet, not the PyTorch version we are using.
 * How are the bar maps made? Currently, the bar map is a weighted average of the bar. This is why we need to keep the background of the bar zero, rather than using negative numbers, to prevent bars from cancelling each other out during addition.
-* Have some function with [Receptive Field Playground](https://github.com/tonyfu97/rf_playground). It is an interactive web app that allows you to map RF of CNNs using bar stimulus on your browser.
+* Have some fun with [Receptive Field Playground](https://github.com/tonyfu97/rf_playground). It is an interactive web app that allows you to map RF of CNNs using bar stimulus on your browser.
 
 
 ## CNN Basics
