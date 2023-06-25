@@ -3,7 +3,7 @@
 'Artiphysiology' is a term coined by Dean A. Pospisil, Anitha Pasupathy, and Wyeth Bair in their paper ['Artiphysiology' reveals V4-like shape tuning in a deep network trained for image classification
 (2018)](https://elifesciences.org/articles/38242). In this paper, they use this method to test whether two properties of shape selectivity in V4, tuning for boundary curvature, and translation invariance arise within a convolutional neural network (CNN) known as AlexNet. This approach is akin to how an electrophysiologist characterizes single neurons in the brain.
 
-I have been applying Artiphysiology to examine border ownership selectivity [(Zhou et al., 2000)](https://www.jneurosci.org/content/20/17/6594) and receptive field mapping in CNNs. Here are some lessons I have learned from my research. I will continue to add more research tips in the future.
+I have been applying Artiphysiology to examine border ownership selectivity [(Term paper)](https://drive.google.com/file/d/11tImWjiXW9stfrepN8cBhX53kX1RwTpG/view?usp=share_link) and receptive field mapping in CNNs [(Master Thesis)](https://drive.google.com/file/d/1MCTaYwBLd1Bgp-cfZlkt8A91-HsQCUmg/view?usp=share_link). Here are some lessons I have learned from my research. I will continue to add more research tips in the future.
 
 
 ## Setting up
@@ -64,9 +64,9 @@ Here is an [example notebook](rf_mapping_live(standalone).ipynb) that demonstrat
 It is important to store results in a way that can be easily accessed. As mentioned above, it's better to store these results on an external SSD rather than on your local machine. The format to save data really depends on the case and your personal preference. I generally follow these rules:
 
 
-1. If the data is a dataframe, I will save it as .csv or .txt, so it can be easily loaded using pd.read_csv() or even queried using SQLite3.
-2. If the data is image data that will be used later, I save it as .npy using np.save() and can easily load it again using np.load().
-3. Usually, in addition to the .npy file, I convert each image into a .png so I can later view it using a simple web portal (like this [CNN-Database](https://github.com/tonyfu97/CNN-Database)). You don't need to deploy it on the web like I did; it can be a local website. Since the images are saved as uint8, they also take up less space. Here is how to convert image array into .png file:
+1. If the data is a dataframe, I will save it as `.csv` or `.txt`, so it can be easily loaded using `pd.read_csv()` or even queried using SQLite3.
+2. If the data is image data that will be used later, I save it as `.npy` using `np.save()` and can easily load it again using `np.load()`.
+3. Usually, in addition to the `.npy` file, I convert each image into a .png so I can later view it using a simple web portal (like this [CNN-Database](https://github.com/tonyfu97/CNN-Database)). You don't need to deploy it on the web like I did; it can be a local website. Since the images are saved as uint8, they also take up less space. Here is how to convert image array into .png file:
 
 ```
 import numpy as np
