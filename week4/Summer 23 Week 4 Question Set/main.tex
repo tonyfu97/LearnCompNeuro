@@ -191,7 +191,7 @@
     Correct sequence: \underline{\hspace{6 cm}}
     \vspace{0.5 cm}
 
-    \item \textbf{Hopf Bifurcation}: As discussed in the lecture, bifurcation refers to a change in the system's behavior as certain system parameters change. Specifically, a Hopf bifurcation occurs when a system's fixed point undergoes a change in its \underline{\hspace{2 cm}}. Choose the most appropriate option:
+    \item \textbf{Hopf Bifurcation}: As discussed in the lecture, bifurcation refers to a change in the system's behavior as certain system parameters change. Specifically, a Hopf bifurcation occurs when a system's fixed point undergoes a change in its \underline{\hspace{2 cm}}, creating a limit cycle in the process. Choose the most appropriate option:
     \begin{enumerate}
         \item Position
         \item Dimensionality
@@ -201,7 +201,6 @@
 
     \item \textbf{Super- vs. Subcritical Hopf Bifurcations}: For each of the following scenarios, determine whether it most closely aligns with a supercritical ("super") or subcritical ("sub") Hopf bifurcation:
     \begin{enumerate}
-        \item Type I neuron model, with a continuous frequency-current function. (sub/super)
         \item Type II neuron model, with a discontinuous frequency-current function. (sub/super)
         \item As a system parameter is varied, an initially stable equilibrium point loses its stability. Instead of the system becoming chaotic or unpredictable, a stable limit cycle emerges from the bifurcation point. (sub/super)
         \item As a system parameter is varied, an initially stable equilibrium point loses its stability, and an unstable limit cycle emerges, potentially leading to more complex or chaotic dynamics. (sub/super)
@@ -213,13 +212,50 @@
 
 \section{CNS4.4B - Firing threshold in 2D models}
 \begin{enumerate}
-    \item 
+    \item \textbf{Saddle-Node Bifurcation}: Saddle-node bifurcation represents one of the fundamental types of bifurcations. In this process, a pair of fixed points, one stable and one unstable, are either created or annihilated. Identify the correct categorization for each fixed point during a saddle-node bifurcation:
+
+    \begin{enumerate}
+    \item The stable fixed point is termed as a: (Saddle/Node).
+    \item The unstable fixed point is termed as a: (Saddle/Node).
+    \end{enumerate}
+
+    \item \textbf{Type I Model}: Considering the 2D Type I neuron model discussed in the video (prior to the bifurcation resulting in the loss of the saddle and node), what would be the neuron's response when the pulse input exceeds the threshold but is not sufficiently strong?
+    \begin{enumerate}
+        \item Delay in the initiation of the spike
+        \item Decrease in the amplitude of the spike
+    \end{enumerate}
+
+    \item \textbf{FitzHugh-Nagume (Type II Model)}: Considering the 2D Type II neuron model discussed in the video, what would be the neuron's response when the pulse input is not sufficiently strong?
+    \begin{enumerate}
+        \item Delay in the initiation of the spike
+        \item Decrease in the amplitude of the spike
+    \end{enumerate}
+
+    \item \textbf{Type I Model - Threshold}: In the context of the 2D neuron model showcased in the video, which of the following is responsible for determining the threshold of the action potential during saddle-node bifurcation with pulse input?
+    \begin{enumerate}
+        \item The stable manifold which attracts towards the saddle point.
+        \item The u-nullcline which represents a set of points in the phase plane where the u-variable does not change.
+        \item The w-nullcline which represents a set of points in the phase plane where the w-variable does not change.
+    \end{enumerate}
+
+    \item \textbf{FitzHugh-Nagume (Type II Model) - Threshold}: In the context of the 2D neuron model showcased in the video, which of the following is responsible for determining the threshold of the action potential under the assumption of the separation of timescales.
+    \begin{enumerate}
+        \item The stable manifold which attracts towards the saddle point.
+        \item The middle branch of the u-nullcline.
+        \item The middle branch of the w-nullcline.
+    \end{enumerate}
+
 \end{enumerate}
 \pagebreak
 
 \section{CNS4.5 - Nonlinear Integrate-and-Fire Model}
 \begin{enumerate}
-    \item 
+    \item \textbf{Further Reduction to 1D}: What does the separation of timescales enable us to accomplish? Select all that apply:
+    \begin{enumerate}
+        \item In the FitzHugh-Nagumo model, we can assume the slow variable $w$ to be constant. Therefore, in the phase portrait, the vector fields will be primarily horizontal except when near the u-nullcline.
+        \item In the 2D Hodgkin-Huxley model, we can approximate $w$ to be constant near the resting state. This allows us to convert it into a 1D Exponential Integrate-and-Fire (EIF) Model with an exponential component and a linear subthreshold component. Since we are primarily interested in the timing of the spike and the subthreshold voltage, and not in modeling the adaptation and refractory period following the spike, we can introduce an explicit threshold and reset mechanism instead of having an additional variable $w$ after the spike.
+    \end{enumerate}
+
 \end{enumerate}
 \pagebreak
 
