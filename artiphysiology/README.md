@@ -6,7 +6,7 @@
 I have been applying Artiphysiology to examine border ownership selectivity [(Term paper)](https://drive.google.com/file/d/11tImWjiXW9stfrepN8cBhX53kX1RwTpG/view?usp=share_link) and receptive field mapping in CNNs [(Master Thesis)](https://drive.google.com/file/d/1MCTaYwBLd1Bgp-cfZlkt8A91-HsQCUmg/view?usp=share_link). Here are some lessons I have learned from my research. I will continue to add more research tips in the future.
 
 
-## Setting up
+## Setting Up
 * Colab notebooks are a good starting point, especially for exploring ideas. I recommend beginning with a small project using notebooks.
 * Download the following Python packages:
 ```
@@ -55,7 +55,7 @@ Here is an [example notebook](rf_mapping_live(standalone).ipynb) that demonstrat
 ## CNN Basics
 * Familiarize yourself with these three CNNs by reading their papers: AlexNet [(Krizhevsky et al., 2012)](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf), VGGNets [(Simonyan and Andrew Zisserman, 2014)](https://arxiv.org/abs/1409.1556), and ResNets [(He et al., 2016)](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf). Do not get too caught up in the details. A general understanding, e.g., what a pooling layer is or what ReLU is, will suffice. Take note that PyTorch's version of AlexNet is not the original version that won the ImageNet competition in 2012. Instead, it is a variant that was published in [2014](https://arxiv.org/abs/1404.5997).
 * Be aware that the term "convolution" is a misnomer. The networks are actually performing a cross-correlation operation, as they never flip the kernel, even when the term is initially introduced in [LeCun et al., (1989)](http://yann.lecun.com/exdb/publis/pdf/lecun-89e.pdf).
-* Understand that most of the units expect the input dataset to be standardized. The 50,000 ImageNet dataset linked above is not standardized. By standardize, I don't mean standardizing each image individually. I mean you need to compute the average and standard deviation of every pixel in the dataset, and normalize each image according to this global average and standard deviation, so that the dataset globally has a mean of 0 and a standard deviation of 1.
+* Understand that most of the units expect the input dataset to be standardized. The 50,000 ImageNet dataset linked above is not standardized. By standardize, I don't mean standardizing each image individually. I mean you need to compute the average and standard deviation of every pixel in the dataset, and standardize each image according to this global average and standard deviation, so that the dataset globally has a mean of 0 and a standard deviation of 1.
 * It would be useful to know how to calculate the receptive field of a unit in a given layer by hand. The PyTorch official documentation (e.g., [torch.nn.Conv2d](https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html)) provides some formulas. I have written a script [spatial_utils.py](spatial_utils.py) that handles these calculations.
 * Always make sure that you set the network to inference mode using `model.eval()`. For AlexNet, this won't cause any difference. However, for networks with special layers that change characteristics depending on whether they are in training or inference mode, such as the `BatchNorm2d` layer in ResNet18, failing to set it to `eval()` mode could result in additional normalization of the image. This could lead to inaccurate interpretations of the response.
 
@@ -75,3 +75,40 @@ array = array.astype(np.uint8)
 image = Image.fromarray(array)
 image.save("filename.png")
 ```
+
+## Computing Resources
+
+If you have access to one of our lab computers, you can use the following steps to access it. The instructions provided below are specific to macOS users. For Windows users, a software named PuTTY can be used to perform similar operations.
+
+### Setting Up
+* If you don't already have an SSH key pair (consisting of a public and a private key), you'll need to create one. In Terminal, type `ssh-keygen`. Follow the prompts to create a new key pair. If you already have an SSH key pair, they are likely stored in the `~/.ssh/` directory.
+* Use the `ssh-copy-id` command to copy your public key to the remote server, replacing `username` and `hostIP` with your information.
+```
+ssh-copy-id username@hostIP
+```
+and use the `logout` command to log out.
+* Now, you should be able to SSH into your remote server by typing:
+```
+ssh username@hostIP
+```
+* Edit your `/etc/hosts` file to assign an alias to the IP address of the lab server. The format should be:
+```
+hostIP	computer_name.department_name.school_domain		alias_name
+```
+Now you can log in using:
+```
+ssh username@alias_name
+```
+* To run a Python script in the background even after you close the terminal window, use:
+```
+nohup python3 -m src.script_name &
+```
+Here, `nohup` allows the process to continue running even after the terminal is closed, `python3 -m` executes the named script, and `&` runs the command in the background.
+* The publicly accessible server might not be powerful enough to run scripts, so you need to SSH into another computer.
+* If you anticipate your script running for days, notify other lab members beforehand. Also, use the `top` command to check if other scripts are currently running.
+* You can use the `lspci` command to check for an NVIDIA GPU as follows:
+```
+lspci | grep -i nvidia
+```
+If an NVIDIA GPU is installed on the machine, this command will output its details.
+
