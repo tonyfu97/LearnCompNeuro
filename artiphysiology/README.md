@@ -41,7 +41,7 @@ The versions do not have to match exactly, but please note that PyTorch has depr
 
 
 ## Artiphysiogy
-Here is an [example notebook](rf_mapping_live(standalone).ipynb) that demonstrates Artiphysiology in action. It is used to create an animation of how a color bar map is created. In the **Helper functions and classes** section, please pay attention to:
+Here is an [example notebook](rf_mapping_live(standalone).ipynb) that demonstrates Artiphysiology in action [(demo video)](https://youtu.be/Xc0pfPmdJcY). It is used to create an animation of how a color bar map is created. In the **Helper functions and classes** section, please pay attention to:
 
 * How the bar is created.
 * The reasoning behind truncating the model up to the layer of interest before running any inference.
