@@ -75,6 +75,16 @@ array = array.astype(np.uint8)
 image = Image.fromarray(array)
 image.save("filename.png")
 ```
+I also like to convert any DataFrame data into JSON format for accessibility in JavaScript. You can do this by first placing the data in a Python dictionary and then dumping it into a JSON file. Here's an example:
+```
+import json
+import pandas as pd
+
+output_dict = df.to_dict()
+
+with open("output_file.json", 'w') as f:
+    json.dump(output_dict, f)
+```
 
 ## Computing Resources
 
