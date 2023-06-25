@@ -99,6 +99,8 @@ Now you can log in using:
 ```
 ssh username@alias_name
 ```
+
+### Running Scripts
 * To run a Python script in the background even after you close the terminal window, use:
 ```
 nohup python3 -m src.script_name &
