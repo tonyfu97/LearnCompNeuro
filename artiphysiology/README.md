@@ -39,6 +39,7 @@ The versions do not have to match exactly, but please note that PyTorch has depr
 * **When working with a significant amount of data**, I would not recommend storing all the data and results on your local machine. Instead, consider using an external SSD (like a Samsung T7) of at least 256 GB (depending on your project) and at least USB 3.0. This way, when reading data, you can directly access it from the external SSD, and generate results written directly to the external SSD. For reference, I have generated about 300 GB of data for a single project. However, if you're just starting out, there's no need to invest in such a solution right away.
 * However, keep your source code on your computer, and better yet, track it using GitHub. 
 * The 50,000 ImageNet dataset that Dr. Pospisil used is linked [here](http://wartburg.biostr.washington.edu/loc/course/artiphys/data/i50k.html). It will consume about 60 GB, so I recommend acquiring an external SSD first if storage is a concern. The natural images are mainly used to detemine what image patches in the natural image dataset that drives the neurons the most, and this work has already been done by us (see [CNN-Database](https://github.com/tonyfu97/CNN-Database)), so you don't need to download this dataset unless you want to use it for other purposes.
+* It would be useful to use Python's logging module, not just to log the date and the script being run, but also the parameters you've used (e.g., model, layers, stimulus, etc). I have a file named [log.py](log.py) that manages these things.
 
 
 ## Artiphysiogy
@@ -59,6 +60,19 @@ Here is an [example notebook](rf_mapping_live(standalone).ipynb) that demonstrat
 * Understand that most of the units expect the input dataset to be standardized. The 50,000 ImageNet dataset linked above is not standardized. By standardize, I don't mean standardizing each image individually. I mean you need to compute the average and standard deviation of every pixel in the dataset, and standardize each image according to this global average and standard deviation, so that the dataset globally has a mean of 0 and a standard deviation of 1.
 * It would be useful to know how to calculate the receptive field of a unit in a given layer by hand. The PyTorch official documentation (e.g., [torch.nn.Conv2d](https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html)) provides some formulas. I have written a script [spatial_utils.py](spatial_utils.py) that handles these calculations.
 * Always make sure that you set the network to inference mode using `model.eval()`. For AlexNet, this won't cause any difference. However, for networks with special layers that change characteristics depending on whether they are in training or inference mode, such as the `BatchNorm2d` layer in ResNet18, failing to set it to `eval()` mode could result in additional normalization of the image. This could lead to inaccurate interpretations of the response.
+
+
+## CNN Visualizations
+The main advantage of studying CNNs over biological visual systems lies in the accessibility of the learned parameters. Over the years, numerous CNN visualization techniques have been developed, some noteworthy ones include:
+* [Activation Maximization (Erhan et al., 2009)](https://www.researchgate.net/publication/265022827_Visualizing_Higher-Layer_Features_of_a_Deep_Network): An application of gradient ascent where an input image is iteratively updated in the direction of the gradient.
+* [Deconvolutional Neural Network, or DeconvNet (Zeiler and Fergus, 2013)](https://arxiv.org/abs/1311.2901): This technique constructs the same CNNs, but in reverse. It "feedforwards" the response of the unit/channel of interest to earlier layers until it reaches the input layer. The kernels are inverted, and the MaxPooling positions are stored using "switch" variables.
+* [Guided Backpropagation (Springenberg et al., 2015)](https://arxiv.org/abs/1412.6806): This technique modifies the backward pass of vanilla backpropagation by (1) rectifying negative gradients during the backward pass, and (2) rectifying locations that result in negative values during the forward pass of the ReLU layer. These modifications often lead to cleaner gradient visualizations.
+
+For more information and implementations of other visualization techniques, I recommend exploring these resources:
+
+* [Pytorch's Captum library](https://captum.ai)
+* [GitHub repository by utkuozbulak](https://github.com/utkuozbulak/pytorch-cnn-visualizations#gradient-visualization)
+* [GitHub repository by hans66hsu](https://github.com/hans66hsu/nn_interpretability)
 
 
 ## Data Analysis
