@@ -1,0 +1,301 @@
+\documentclass[11pt,letterpaper]{article}
+
+% Load package
+\usepackage{lesson}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{url}
+
+%--------------------------------------%
+% Custom commands include:             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Include an image:                    %
+% \diagram{height}{align}{file}        %
+%                                      %
+% height: a number representing mm     %
+% align: left, center, or right        %
+% file: file name without extension    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add a numbered question:             %
+% \question{text}                      %
+% \questiond[lines]{file}{width}{text} %
+%                                      %
+% lines: # of lines of text to wrap    %
+% file: file name without extension    %
+% width: a % of textwidth for image    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add a lettered option/question part: %
+% \option[vspace]{text}                %
+%                                      %
+% vspace: added space above the option %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add a blank line in text:            %
+% \blankline{width}                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add an arc symbol in math:           %
+% \arc{notation}                       %
+%--------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------------------------%
+% To reset the question counter:       %
+% \setcounter{qcounter}{0}             %
+%                                      %
+% To reset the option counter:         %
+% \setcounter{acounter}{0}             %
+%--------------------------------------%
+
+% Set title and course name
+\settitle{Week 5 Question Set}
+\setsubtitle{Variability of spikes trains \& Depth}
+\setcourse{Summer 2023}
+
+\begin{document}
+
+% Create title and add proper header for first page
+\maketitle
+\thispagestyle{first}
+
+\section{CNS5.2 - Sources of Variability?}
+\begin{enumerate}
+    \item What are some sources of variability in a neuron's activity? (Select all that apply)
+    \begin{enumerate}
+        \item Stochastic opening and closing of ion channels
+        \item Unpredictable incoming spikes from other neurons
+        \item Variability in the amounts and timing of neurotransmitter release
+        \item Stochastic nature of biochemical reactions within the neuron
+    \end{enumerate}
+    
+    \item Why does a neuron's firing pattern become more predictable when given a fluctuating input current?
+    \begin{enumerate}
+        \item Fluctuating input current amplifies the neuron's intrinsic noise
+        \item Fluctuating input current can entrain the neuron's firing to its own rhythm
+        \item Fluctuating input current decreases the neuron's sensitivity to external stimuli
+        \item Fluctuating input current increases the amount of neurotransmitter release
+    \end{enumerate}
+
+    \item Which of the following sources of noise contributes more significantly to the variability of a neuron's activity?
+    \begin{enumerate}
+        \item Intrinsic noise (e.g., due to ion channels)
+        \item Network noise (e.g., due to unpredictable incoming spikes from other neurons)
+    \end{enumerate}
+    
+    \item Please select the correct options: In the video, it is demonstrated that (deterministic/stochastic) leaky integrate-and-fire neurons with (random/nonrandom) connectivity can reproduce both the variability of membrane potentials and the broad interspike interval (ISI) distribution that are observed \textit{in vivo}.
+    
+\end{enumerate}
+\pagebreak
+
+\section{CNS5.3A - Three Definitions of Rate Code}
+\begin{enumerate}
+    \item The term "firing rate" is not uniformly defined and may have three different interpretations. Match the corresponding definition with the correct description and feasibility in real-time conditions:
+    \begin{enumerate}
+        \item Definitions
+        \begin{enumerate}
+            \item Temporal averaging
+            \item Averaging across repetitions
+            \item Population averaging ('spatial' averaging)
+        \end{enumerate}
+
+        \item Examples
+        \begin{itemize}
+            \item \underline{\hspace{1.5 cm}} Average taken across a population of neurons.
+            \item \underline{\hspace{1.5 cm}} Peristimulus time histogram (PSTH).
+            \item \underline{\hspace{1.5 cm}} Firing rate derived from a single neuron's spikes, calculated by counting the number of spikes and dividing by the stimulus duration. The interspike interval (ISI) can be used to measure its regularity, and the Fano factor can be used to assess the variability of spike count across trials.
+        \end{itemize}
+
+        \item Real-time feasibility
+        \begin{itemize}
+            \item \underline{\hspace{1.5 cm}} Naturally occurring in animals, as postsynaptic neurons often receive input from pools of presynaptic neurons with similar properties.
+            \item \underline{\hspace{1.5 cm}} Might be too slow for an animal, as the calculation requires waiting for a stimulus duration. Given the sparse nature of firing, certain neurons might need to wait too long, potentially missing vital survival cues.
+            \item \underline{\hspace{1.5 cm}} Unlikely to be feasible in real-time animal conditions, as animals cannot afford to wait for multiple trials of stimulus presentation (e.g., prey or predator cues).
+        \end{itemize}   
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+
+\section{CNS5.3B - Poisson Model}
+\begin{enumerate}
+    \item \textbf{Poisson Process - Definition}: Select all conditions that accurately define a Poisson process:
+    \begin{enumerate}
+        \item The number of events in non-overlapping intervals is independent.
+        \item The probability of an event occurring in a small interval of length $\Delta t$ is $\lambda*\Delta t$, for small $\Delta t$.
+        \item The probability of more than one event in an interval of length $\Delta t$ goes to zero as $\Delta t$ goes to zero.
+        \item The number of events in overlapping intervals is independent. 
+        \item The probability of an event occurring in a small interval of length $\Delta t$ is $\lambda/\Delta t$, for small $\Delta t$.
+        \item The probability of no event in an interval of length $\Delta t$ goes to zero as $\Delta t$ goes to zero.
+    \end{enumerate}
+
+    \item \textbf{Poisson Process - Probability of Firing}: We learned that the probability of firing is
+    \begin{equation}
+        P_F = \rho_0 \, \Delta t
+    \end{equation}
+    What is $P_F$ in this case?
+    \begin{enumerate}
+        \item The average rate of firing per unit time, i.e., instantaneous firing rate, which is in Hz and can be greater than 1.
+        \item The probability of an event (neuron firing) occurring in a small interval $\Delta t$
+        \item The number of firing events that occur in time $\Delta t$
+        \item The standard deviation of the firing rate
+    \end{enumerate}
+    What is $\rho_0$?
+    \begin{enumerate}
+        \item The average firing rate per unit time, i.e., instantaneous firing rate, which is in Hz and can be greater than 1.
+        \item The standard deviation of the firing rate
+        \item The duration of the interval in which we are interested
+        \item The number of firing events that occur in unit time
+    \end{enumerate}
+
+    \item \textbf{Poisson Process - Interval Distribution}: Select the correct option about the interval distribution (for homogeneous Poisson porcess):
+    \begin{enumerate}
+        \item We use the survivor function of the exponential distribution to model the inter-spike intervals as a function of time.
+        \item The term "survive" here refers to the proportion of the neurons that have not fired yet.
+        \item We assume that, at each time step, the probability of survival given that the neuron has not fired, $P(S_t|S_{t-1})$, is the complement of the probability of firing in this time step, $1 - P_F$.  This "memoryless property" occurs because we assume that the probability of a firing occurring in the future is independent of the past, given the present state.
+        \item All of the above.
+    \end{enumerate}
+
+    \item \textbf{Poisson Process - Homogeneity}: Select the correct option about the inhomogeneous Poisson process:
+    \begin{enumerate}
+        \item An inhomogeneous Poisson process is characterized by an instantaneous firing rate $\rho(t)$ that is a function of time rather than a constant.
+        \item The three definitions of "firing rate" introduced in CSN5.3A can all be used to estimate $\rho(t)$.
+        \item The interval distribution $P(t|\hat{t})$ can be obtained by multiplying the survival function $S(t|\hat{t})$ by $\rho(t)$. This is because, given survival up to time $\hat{t}$, the neuron fires at time $t$ if it survives the period $(\hat{t}, t)$ and fires at time $t$. The survival function $S(t|\hat{t})$ captures the survival probability and $\rho(t)$ corresponds to the firing probability at time $t$.
+        \item All of the above.
+    \end{enumerate}
+
+    \item \textbf{Survivor function vs. interval distribution}: Given the scenario of waiting for a bus, determine which term applies:
+    \begin{enumerate}
+        \item You are wondering about the probability that the bus hasn't arrived by a certain time. (Survival function / Interval distribution)
+        \item You want to know the probability that the bus arrives at a specific time given it hasn't arrived yet. (Survival function / Interval distribution)
+    \end{enumerate}
+
+\end{enumerate}
+\pagebreak
+
+\section{CNS5.4A - Stochastic Spike Arrival}
+\begin{enumerate}
+    \item \textbf{Linear Time-Invariant System}: The total spike train of $K$ presynaptic neurons will result in a presynaptic current:
+    \begin{equation}
+        I(t) = \frac{1}{R} \sum_{k=1}^K w_k \sum_{f} \alpha (t - t_k^f)\, ,
+    \end{equation}
+    where $\alpha$ is the impulse response to a single spike, $f$ represents the spike times, $k$ is the index of the neuron, and $w_k$ is the weight of $k$-th neuron. In this equation, we are approximating the system as a linear time-invariant (LTI) system. Why might this be the case?
+    \begin{enumerate}
+        \item Because LTI systems simplify the analysis and are often a good approximation for many real-world systems.
+        \item Because we are assuming that the total presynaptic current is equal to the weighted sum of all the responses to each spike (given by $\alpha$). This is the superposition (a.k.a. additive property) and the scaling (a.k.a. homogeneity property) of the linear systems.
+        \item Because the response to each spike does not depend on the time at which the spike occurs, which is characteristic of a time-invariant system.
+        \item All of the above are correct.
+    \end{enumerate}
+
+    \item \textbf{Mean Firing Rate}: In the video, it was stated that the expected value of the sum of the delta functions over time for the $k$-th neuron, denoted as $\langle\sum_f \delta(t - t_k^f)\rangle$, can be replaced by the mean firing rate $\rho_k(t')$ of that neuron. Why is this the case?
+    \begin{enumerate}
+        \item Because the mean firing rate does not accurately reflect the neuron's activity.
+        \item Because the mean firing rate $\rho_k(t')$ represents the average number of spikes that neuron $k$ emits per unit time, which is equivalent to the expected value of the sum of the delta functions.
+        \item Because the delta functions are irrelevant in determining the neuron's activity.
+        \item Because the neuron's activity is entirely random and cannot be quantified.
+    \end{enumerate}
+    
+\end{enumerate}
+\pagebreak
+
+\section{CNS5.4B - Membrane Potential Fluctuations}
+\begin{enumerate}
+    \item \textbf{Applications of Autocorrelation}: Which of the following statements accurately describes a way in which autocorrelation is used in neuroscience?
+    \begin{enumerate}
+        \item Autocorrelation can help reveal whether a neuron has a tendency to fire at regular intervals.
+        \item Autocorrelation can reveal burst firing patterns due to the high correlation at short time lags.
+        \item Autocorrelation can be used to test whether a neuron's firing is consistent with a Poisson process.
+        \item Cross-correlation, a related concept, can be used to examine the degree to which two neurons are firing synchronously.
+        \item All of the above are correct.
+    \end{enumerate}
+
+    \item \textbf{Testing Poisson with Autocorrelation}: How can we use autocorrelation to test whether a process is Poisson?
+    \begin{enumerate}
+        \item We use autocorrelation to look for periodic patterns in the process, as a Poisson process should not show any such patterns.
+        \item Autocorrelation can be used to test the randomness of the inter-event times in the process; for a Poisson process, the inter-event times should be independent and exponentially distributed.
+        \item All of the above are correct.
+    \end{enumerate}
+
+    \item \textbf{Variance Formula}: In the video, the fluctuations of potential are expressed as:
+    \begin{equation}
+        \langle [\Delta u(t)]^2 \rangle = \langle [u(t)]^2 \rangle - \langle u(t) \rangle^2
+    \end{equation}. We can rewrite this using notation more conventional in probability theory:
+    \begin{equation}
+        Var[U] = E[U^2] - E[U]^2,
+    \end{equation} where $Var[U]$ is the variance of the distribution $U$, and $E$ is the expected value operator. Derive this equation by following these steps:
+    \begin{enumerate}
+        \item The variance of a random variable $U$ is defined as $Var[U] = E[(U - \mu)^2]$, where $\mu$ is the expected value of $U$. Expand the square in this equation.
+        \vspace{2 cm}
+        \item Next, note that the expected value operator $E$ is a linear operator, meaning that $E[aX + bY] = aE[X] + bE[Y]$ for any random variables $X$ and $Y$ and any constants $a$ and $b$. Use this property to simplify the right-hand side of the equation.
+        \vspace{2 cm}
+        \item Lastly, recall that the expected value $E[U]$ of a random variable $U$ is represented by $\mu$ in the variance formula. Substitute this into your equation to arrive at the final formula for the variance.
+        \vspace{2 cm}
+    \end{enumerate}
+\end{enumerate}
+\pagebreak
+
+\section{CNS5.5 - Stochastic Spike Firing in Integrate and Fire Models}
+\begin{enumerate}
+    \item What is the difference between the interspike interval (ISI) distributions in the superthreshold and subthreshold regimes of the Leaky Integrate-and-Fire (LIF) model with diffusive noise? Select the \textbf{incorrect} choice:
+    \begin{enumerate}
+        \item In the superthreshold regime, the ISI distribution often has a sharp peak because the mean input current, which is higher, primarily drives spike generation.
+        \item In the subthreshold regime, the ISI distribution is typically broader because the spikes are primarily driven by fluctuations in the current.
+        \item In both regimes, there is often a lower cut-off in the distribution because the neuron cannot physically fire at a rate beyond a certain limit.
+        \item The ISI distributions for the superthreshold and subthreshold regimes are identical because both are influenced by the same noise distribution.
+    \end{enumerate}
+
+\end{enumerate}
+\pagebreak
+
+\section{V\&B Chapter 5 - Depth: The Rogue Dimension}
+\begin{enumerate}
+    \item \textbf{Pictorial Cues for Distance Perception}: Which of the following are pictorial cues that the brain uses to estimate the relative distance of objects in a visual scene? Select all that apply.
+    \begin{enumerate}
+        \item \textbf{Size and height in the visual field}: Larger objects and objects lower in the visual field are typically perceived as closer.
+        \item \textbf{Overlap or interposition}: When one object occludes part of another, the occluded object is perceived as farther away.
+        \item \textbf{Linear perspective}: Parallel lines appear to converge as they recede into the distance, providing a sense of depth.
+        \item \textbf{Texture gradient}: The detail of texture decreases as distance increases, providing a cue to distance.
+        \item \textbf{Aerial (atmospheric) perspective}: Distant objects appear less sharp and more bluish due to light scattering by the atmosphere.
+        \item \textbf{Shadows and shading}: These provide information about the three-dimensional shape of an object and its distance from others.
+        \item \textbf{Accommodation}: The ciliary muscles in the eye change the shape of the lens to focus on objects at different distances, providing a cue to distance.
+        \item \textbf{Convergence}: The eyes rotate towards each other to focus on close objects, and this muscular effort provides a cue to the distance of the object.
+        \item \textbf{Binocular disparity (or stereopsis)}: Because our eyes are spaced apart, each eye gets a slightly different view of the world. The brain uses these differences to estimate distance.
+        \item \textbf{Motion parallax}: When you move your head side-to-side, objects at different distances move at different speeds. Closer objects appear to move more than distant objects.
+    \end{enumerate}
+
+    \item \textbf{Neural Adaptation}: The book suggests that the phenomenon of neural adaptation - specifically the decrease in neuronal firing rate in response to a continuously present stimulus - can be better explained by information optimization rather than neuronal fatigue. Consider the research conducted on fly neurons which showed that the reduced firing rate following adaptation to motion increases the neuron's total information about that motion (Brenner, Bialek, \& de Ruyter van Steveninck, 2000). How might this be possible?
+    \begin{enumerate}
+        \item Adaptation enhances a neuron's sensitivity to changes or variations in stimuli, thereby maximizing the information it can encode and transmit.
+        \item After adapting to a stimulus, neurons are fatigued and therefore fire less frequently.
+        \item Neurons have a fixed firing rate, unaffected by adaptation or the presence of stimuli.
+        \item All of the above.
+    \end{enumerate}
+
+    \item \textbf{Motion Blur}: The author notes that in photography, motion blur results from scene points being spread across multiple pixel elements during the brief interval that the camera shutter is open. This concept can be applied analogously to the visual perception in animals. What represents the "shutter interval" in this context for animal eyes? Please elaborate on this analogy.
+    \pagebreak
+
+    \item \textbf{Comparative Stereopsis Strategies:} In biological vision, evidence suggests that our brains approach the correspondence problem in stereopsis by matching coarse elements before fine details. This strategy seems to even apply to the interpretation of random-dot stereograms. How does this biological coarse-to-fine approach differ from feature-based matching commonly used in computer vision?
+    \begin{enumerate}
+        \item What are the main components of the biological coarse-to-fine strategy, and how might it function with random-dot stereograms?
+        \vspace{3 cm}
+        \item How does feature-based matching in computer vision typically operate, and what advantages or disadvantages might it have in comparison to the biological approach?
+        \vspace{3 cm}
+    \end{enumerate}
+
+    \item \textbf{Cues for Shape}: Match the following visual cues with their correct examples:
+    \begin{enumerate}
+        \item Shape from Motion
+        \item Shape from Texture
+        \item Shape from Shading
+    \end{enumerate}
+
+    Match the above visual cues with these examples:
+    \begin{itemize}
+        \item \underline{\hspace{1.5 cm}} A two-dimensional image of a gravel road appears to have depth due to changes in the size and density of gravel pebbles as they stretch into the distance.
+        \item \underline{\hspace{1.5 cm}} A crumpled piece of paper appears to have a three-dimensional structure due to the play of light and shadow across its surface.
+        \item \underline{\hspace{1.5 cm}} A wireframe cube appears three-dimensional when it is rotating.
+    \end{itemize}
+
+    
+
+
+    
+
+\end{enumerate}
+
+\end{document}
