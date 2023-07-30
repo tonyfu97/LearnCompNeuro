@@ -77,13 +77,14 @@ Region proposal methods, in essence, simplify the complex task of identifying an
 Processing dynamic visual stimuli like the moving "barber pole" involves the challenge of integrating spatial and temporal information. While Two-Stream Convolutional Networks and ConvLSTM can handle both types of data, they may not model the exact processes of the brain, especially considering the non-linear and complex nature of neuronal dynamics in the brain. Another potential challenge is that of matching the exact input stimulus. In the neurophysiology studies, the stimuli are very specific and might not correspond to the type of data that the deep learning models are typically trained on (e.g., natural images or videos). 
 
 
-### C. High-Level Invariant Representation
+### C. Invariance vs. Selectivity
 
 * 1. Neurophysiology Literature:
 
 | Paper Title | Authors | Year | Model Organism & Visual Area | Stimulus |
 |-------------|---------|------|------------------------------|----------|
-| Invariant visual representation by single neurons in the human brain | Quiroga et al. | 2005 | Human, Medial Temporal Lobe (MTL) | Images and names of celebrities, landmarks, objects, and animals |
+| Selectivity and Tolerance (“Invariance”) Both Increase as Visual Information Propagates from Cortical Area V4 to IT | Rust & DiCarlo | 2010 | Macaque Monkey, V4 & IT | "Scrambled" natural image (for testing conjunction sensitivity) and transformed objects (for testing tolerance/invariance) |
+
 
 *  2. Possible Deep Learning Architectures:
 
@@ -91,11 +92,14 @@ Processing dynamic visual stimuli like the moving "barber pole" involves the cha
 |-------------|---------|------|----------------|----------------|
 | ImageNet Classification with Deep Convolutional Neural Networks | Krizhevsky et al. | 2012 | AlexNet | We can confidently expect AlexNet to be able to create an invariant representation of images across multiple layers of abstraction |
 
+
 * 3. Mechanism Study and Interdicipline Review:
 
 | Paper Title | Authors | Year | Model/Algorithm/Idea | Why relevant? |
 |-------------|---------|------|---------------------|----------------|
-| Building high-level features using large scale unsupervised learning | Le et al. | 2013 | Unsupervised Feature Learning | Demonstrates the ability of deep learning models to develop high-level, invariant features without supervision |
+| The Natural Tendency of Feed Forward Neural Networks to Favor Invariant Units | Pospisil & Bair | 2019 | Deep net architectures naturally favor invariant units over selective ones | Would be interesting to see if this is the case in our results |
+| Measuring Invariances in Deep Networks | Goodfellow et al. | 2009 | A metric for measuring invariance | Translation invariance is lower in deeper layer? Would be interesting to see if this is the case |
+| Invariant visual representation by single neurons in the human brain | Quiroga et al. | 2005 | The "Jennifer Aniston" cell | Demonstrates the existence of 'grandmother cells' in the human brain |
 
 * 4. Potential Challenges and Limitations: 
 
