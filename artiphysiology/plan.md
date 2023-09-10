@@ -154,6 +154,10 @@ shape = Shape(shape_coords)
 shape.render(1, img_size=(6, 6), background_color='g', shape_color='y', fill_shape=False)
 ```
 
+* Surface-Property Units: care if the shape is filled or not. Hypothesized to have lower dynamic range. More sensitive to color.
+* Boundary-Property Units: don't care if the shape is filled or not. Hypothesized to have greater dynamic range. Invariant to color.
+
+
 ### 2.2 Rescale the stimulus set according to the RF and XN size of the layer.
 
 Check out `model_info.txt` for the RF and XN size of the layer.
